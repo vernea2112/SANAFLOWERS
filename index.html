@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="pt-AO">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SANA | Alta Courparfums & Rosas de Luxo</title>
+    <style>
+        :root {
+            --bg-black: #0b0b0b;
+            --pure-white: #ffffff;
+            --gold-premium: #d4af37;
+            --gold-dark: #aa8416;
+            --text-mute: #8e8e93;
+            --card-bg: #161617;
+            --border-color: rgba(255, 255, 255, 0.05);
+            --font-serif: "Didot", "Bodoni MT", "Cinzel", serif;
+            --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            letter-spacing: -0.01em;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            background-color: var(--bg-black);
+            color: var(--pure-white);
+        }
+
+        body {
+            font-family: var(--font-sans);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* PREMIUM HEADER */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: 80px;
+            background: rgba(11, 11, 11, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .nav-container {
+            width: 100%;
+            max-width: 1200px;
+            padding: 0 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 55px;
+            width: auto;
+            display: block;
+        }
+
+        .nav-right a {
+            color: var(--pure-white);
+            text-decoration: none;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border: 1px solid var(--gold-premium);
+            padding: 10px 18px;
+            transition: all 0.4s ease;
+        }
+
+        .nav-right a:hover {
+            background: var(--gold-premium);
+            color: var(--bg-black);
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
+        }
+
+        /* HERO SECTION */
+        .hero {
+            height: 75vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 24px;
+            position: relative;
+            background: radial-gradient(circle at center, #1c1a17 0%, var(--bg-black) 70%);
+        }
+
+        .hero h1 {
+            font-family: var(--font-serif);
+            font-size: clamp(32px, 7vw, 56px);
+            font-weight: 300;
+            margin-bottom: 32px;
+            line-height: 1.2;
+        }
+
+        .btn-gold {
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--bg-black);
+            background: var(--gold-premium);
+            padding: 16px 40px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s ease;
+        }
+
+        .btn-gold:hover {
+            background: var(--gold-dark);
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+        }
+
+        /* 1. A VITRINE: OS BUQUÊS PERFEITOS */
+        .collection {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 24px 40px 24px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-family: var(--font-serif);
+            font-size: 32px;
+            font-weight: 400;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: var(--text-mute);
+            font-size: 14px;
+            letter-spacing: 1px;
+        }
+
+        .section-title .line {
+            width: 50px;
+            height: 1px;
+            background: var(--gold-premium);
+            margin: 20px auto;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            transition: all 0.4s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(212, 175, 55, 0.3);
+        }
+
+        .card-img-wrapper {
+            position: relative;
+            width: 100%;
+            height: 320px;
+            overflow: hidden;
+        }
+
+        .card-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+        }
+
+        .card:hover .card-img { transform: scale(1.05); }
+
+        .card-info {
+            padding: 25px;
+            text-align: center;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card-info h3 {
+            font-family: var(--font-serif);
+            font-size: 19px;
+            margin-bottom: 6px;
+            color: var(--pure-white);
+        }
+
+        .card-info .desc {
+            font-size: 13px;
+            color: var(--text-mute);
+            margin-bottom: 15px;
+            line-height: 1.4;
+            min-height: 38px; /* Mantém o alinhamento visual dos botões */
+        }
+
+        .price { 
+            color: var(--gold-premium); 
+            display: block; 
+            margin-bottom: 20px; 
+            font-size: 16px; 
+            font-weight: 600;
+        }
+
+        .btn-order {
+            display: block;
+            width: 100%;
+            padding: 14px;
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: white;
+            text-decoration: none;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: 0.3s;
+            font-weight: 500;
+        }
+
+        .card:hover .btn-order { 
+            background: var(--pure-white); 
+            color: var(--bg-black); 
+            border-color: var(--pure-white);
+        }
+
+        /* 2. SECÇÃO SOB MEDIDA (WHATSAPP) */
+        .custom-design {
+            background: var(--card-bg);
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            padding: 90px 24px;
+            margin: 60px 0;
+            text-align: center;
+        }
+
+        .custom-container {
+            max-width: 750px;
+            margin: 0 auto;
+        }
+
+        .custom-container h2 {
+            font-family: var(--font-serif);
+            font-size: 34px;
+            font-weight: 300;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+        }
+
+        .custom-container p {
+            color: var(--text-mute);
+            font-size: 15px;
+            line-height: 1.8;
+            margin-bottom: 35px;
+        }
+
+        .btn-whatsapp-custom {
+            display: inline-block;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--bg-black);
+            background: var(--gold-premium);
+            padding: 18px 45px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.4s ease;
+        }
+
+        .btn-whatsapp-custom:hover {
+            background: var(--pure-white);
+            color: var(--bg-black);
+            box-shadow: 0 0 25px rgba(255, 255, 255, 0.15);
+        }
+
+        /* TRUST BAR */
+        .trust-bar { background: #111112; padding: 60px 24px; }
+        .trust-wrapper { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; text-align: center; }
+
+        footer { padding: 40px; text-align: center; color: var(--text-mute); font-size: 11px; }
+
+        @media (max-width: 900px) {
+            .grid { grid-template-columns: 1fr; }
+            .trust-wrapper { grid-template-columns: 1fr; }
+            .custom-container h2 { font-size: 26px; }
+            .card-img-wrapper { height: 280px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <!-- Mantive o teu ficheiro original de logo -->
+                <img src="logosanaflowers.png" alt="SANA Logo" style="height: 55px; width: auto;">
+            </a>
+            <div class="nav-right">
+                <a href="https://wa.me/244933225564" target="_blank">Atendimento VIP</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <h1>A Raridade da Rosa.<br>A Perfeição do Gesto.</h1>
+        <a href="#vitrine" class="btn-gold">Ver Prontos a Entregar</a>
+    </section>
+
+    <!-- 1. A VITRINE: OS BUQUÊS PERFEITOS (PRONTOS A ENTREGAR) -->
+    <section class="collection" id="vitrine">
+        <div class="section-title">
+            <p style="color: var(--gold-premium); letter-spacing: 4px; font-size: 11px; text-transform: uppercase; margin-bottom: 10px;">Seleção Inteligente</p>
+            <h2>Os Buquês Perfeitos</h2>
+            <p>Modelos com mais saída e prontos para envio imediato em Luanda.</p>
+            <div class="line"></div>
+        </div>
+
+        <div class="grid">
+            <!-- Item 1: O Clássico Romântico -->
+            <div class="card" data-product="O Clássico Romântico (Ramos de Rosas Vermelhas)">
+                <div class="card-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=600" class="card-img" alt="Ramos de rosas vermelhas">
+                </div>
+                <div class="card-info">
+                    <div>
+                        <h3>O Clássico Romântico</h3>
+                        <p class="desc">Ramos de rosas vermelhas luxuosas. O campeão de vendas para aniversários de namoro ou casamento.</p>
+                    </div>
+                    <div>
+                        <span class="price">25.000 Kz</span> <!-- Podes alterar o preço fixo aqui -->
+                        <a href="#" class="btn-order whatsapp-link">Encomendar via WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 2: O Elegante (Mimos) -->
+            <div class="card" data-product="O Elegante (Caixas ou Cestas de Flores Mistas)">
+                <div class="card-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1566675005-594a1122d69e?q=80&w=600" class="card-img" alt="Cestas de flores mistas">
+                </div>
+                <div class="card-info">
+                    <div>
+                        <h3>O Elegante (Mimos)</h3>
+                        <p class="desc">Caixas ou cestas personalizadas de flores mistas. Muito solicitado para mães, amigas ou chefias.</p>
+                    </div>
+                    <div>
+                        <span class="price">35.000 Kz</span> <!-- Podes alterar o preço fixo aqui -->
+                        <a href="#" class="btn-order whatsapp-link">Encomendar via WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 3: O Pedido de Desculpas / Reconciliação -->
+            <div class="card" data-product="O Pedido de Desculpas (Arranjo Sóbrio e Sofisticado)">
+                <div class="card-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1591881105869-58b3752ea2a6?q=80&w=600" class="card-img" alt="Arranjo sóbrio sofisticado">
+                </div>
+                <div class="card-info">
+                    <div>
+                        <h3>Reconciliação</h3>
+                        <p class="desc">Um arranjo floral de presença sóbria, elegante e altamente sofisticada para momentos importantes.</p>
+                    </div>
+                    <div>
+                        <span class="price">30.000 Kz</span> <!-- Podes alterar o preço fixo aqui -->
+                        <a href="#" class="btn-order whatsapp-link">Encomendar via WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 4: O "Só para Lembrar" -->
+            <div class="card" data-product="O Só para Lembrar (Buquê Simples e Económico)">
+                <div class="card-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1533616688419-b7a585564566?q=80&w=600" class="card-img" alt="Buquê simples e económico">
+                </div>
+                <div class="card-info">
+                    <div>
+                        <h3>Só para Lembrar</h3>
+                        <p class="desc">Um buquê minimalista, delicado e super económico para surpreender no dia a dia, sem precisar de data.</p>
+                    </div>
+                    <div>
+                        <span class="price">15.000 Kz</span> <!-- Podes alterar o preço fixo aqui -->
+                        <a href="#" class="btn-order whatsapp-link">Encomendar via WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. SECÇÃO: BUQUÊ SOB MEDIDA (AGORA NO WHATSAPP) -->
+    <section class="custom-design">
+        <div class="custom-container">
+            <p style="color: var(--gold-premium); letter-spacing: 4px; font-size: 11px; text-transform: uppercase; margin-bottom: 15px;">Criação Exclusiva</p>
+            <h2>Buquê Sob Medida</h2>
+            <p>
+                Queres algo totalmente personalizado? No nosso WhatsApp podes desenhar o arranjo perfeito do teu jeito. Escolhe a quantidade exata de flores, os tipos (Rosas, Girassóis, etc.) e adiciona mimos extras como chocolates ou cartões. Fazemos tudo numa conversa direta e descomplicada.
+            </p>
+            <a href="#" class="btn-whatsapp-custom" id="custom-wa-btn">Montar à Medida no WhatsApp</a>
+        </div>
+    </section>
+
+    <!-- TRUST BAR -->
+    <section class="trust-bar">
+        <div class="trust-wrapper">
+            <div class="trust-item">
+                <h4 style="color: var(--gold-premium); margin-bottom: 10px;">Logística VIP</h4>
+                <p style="font-size: 13px; color: var(--text-mute);">Entrega discreta em toda Luanda.</p>
+            </div>
+            <div class="trust-item">
+                <h4 style="color: var(--gold-premium); margin-bottom: 10px;">Artesanal</h4>
+                <p style="font-size: 13px; color: var(--text-mute);">Cada arranjo é uma obra única.</p>
+            </div>
+            <div class="trust-item">
+                <h4 style="color: var(--gold-premium); margin-bottom: 10px;">Sigilo</h4>
+                <p style="font-size: 13px; color: var(--text-mute);">Anonimato garantido ao remetente.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 SANA Atelier. Luanda, Angola.</p>
+    </footer>
+
+    <script>
+        const phoneNumber = "244933225564";
+
+        // 1. Script para os links automáticos da Vitrina Fixa
+        document.querySelectorAll('.card').forEach(card => {
+            const waLink = card.querySelector('.whatsapp-link');
+            const productName = card.getAttribute('data-product');
+            const price = card.querySelector('.price').innerText;
+
+            function updateLink() {
+                const message = `Olá SANA, vi no site e gostaria de encomendar o buquê pronto:\n- ${productName}\n- Valor: ${price}`;
+                waLink.href = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+            }
+            updateLink();
+        });
+
+        // 2. Script para o Botão "Sob Medida" Geral
+        const customBtn = document.getElementById('custom-wa-btn');
+        const customMessage = "Olá SANA! Gostaria de fazer uma encomenda sob medida. Quero escolher a quantidade, o tipo de flores e personalizar os detalhes do meu buquê.";
+        customBtn.href = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(customMessage)}`;
+    </script>
+</body>
+</html>
